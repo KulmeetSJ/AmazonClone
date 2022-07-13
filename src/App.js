@@ -24,7 +24,7 @@ function Home() {
     <div className="home">
       <h1>Hello World Again!!</h1>
       <Router>
-        <Link to="/App">  App     </Link>
+        <Link to="/app">  App  </Link>
       </Router>
     </div>
   );
