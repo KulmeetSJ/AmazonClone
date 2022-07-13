@@ -1,27 +1,21 @@
-//import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import React from "react";
 
+import Manatee from '../Manatee/Manatee';
 
 
 function App() {
-
-
-  return <div className="app">Hello World!</div>;
-
-
-
-
-}
-
-function Home() {
   return (
-
-    <div className="home">
-      <h1>Hello World Again!!</h1>
-      <Router>
-        <Link to="/app">  App  </Link>
-      </Router>
+    <div className="wrapper">
+      <h1>Marine Mammals</h1>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/">
+            <Manatee />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
