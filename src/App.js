@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 
 
@@ -24,7 +24,7 @@ function Home() {
     <div className="home">
       <h1>Hello World Again!!</h1>
       <Router>
-        <Switch to="/App">  App     </Switch>
+        <Link to="/App">  App     </Link>
       </Router>
     </div>
   );
