@@ -7,7 +7,7 @@ import React from "react";
 function App() {
   return (
     <div className="app">
-      <h1>Helo ji</h1>
+
       <BrowserRouter>
         <Link>
           <Route path="/">
