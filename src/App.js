@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
 import React from "react";
 
-import Manatee from 'Manatee';
+import Manatee from './Manatee';
 
 
 function App() {
@@ -10,11 +10,11 @@ function App() {
     <div className="wrapper">
       <h1>Marine Mammals</h1>
       <BrowserRouter>
-        <Switch>
+        <Link>
           <Route path="/">
             <Manatee />
           </Route>
-        </Switch>
+        </Link>
       </BrowserRouter>
     </div>
   );
