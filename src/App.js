@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import React from "react";
 
-import Manatee from '../Manatee/Manatee';
+import Manatee from 'Manatee';
 
 
 function App() {
