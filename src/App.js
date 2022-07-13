@@ -2,7 +2,14 @@ import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import React from "react";
 
+import Navbar from "./Navbar";
+/*
+import Home from "./pages/home";
+import About from "./pages/about";
+import Contact from "./pages/contact";
+import Faq from "./pages/faq";
 
+*/
 
 function App() {
   return (
@@ -11,7 +18,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home />} />
-
+        <Route path="/" element={<Navbar />} />
 
 
       </Routes>
@@ -31,7 +38,6 @@ function Home() {
 
   );
 }
-
 /*
 function App() {
   return (
