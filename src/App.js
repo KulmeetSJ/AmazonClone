@@ -6,13 +6,13 @@ import React from "react";
 
 function App() {
   return (
-    <div className="app">
-
+    <div className="App">
+      <h1>Hello ji</h1>
       <Routes>
 
-        <Route path="/">
-          <Home />
-        </Route>
+        <Route path="/" element={<Home />} />
+
+
 
       </Routes>
     </div>
