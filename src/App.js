@@ -2,7 +2,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import React from "react";
 
-import Navbar from "./navbar";
+import Navbar from "./Components/navbar";
 /*
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -16,9 +16,10 @@ function App() {
     <div className="App">
       <h1>Hello ji</h1>
       <Routes>
-
-        <Route path="/" element={<Home />} />
-        <Route path="/" element={<Navbar />} />
+        <Link>
+          <Navbar />
+          <Route path="/" element={<Home />} />
+        </Link>
 
 
       </Routes>
