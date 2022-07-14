@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./Components/Header";
 import Home from "./Pages/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import Checkout from "./Pages/Checkout";
 import Login from "./Pages/Login";
 import Payment from "./Pages/Payment";
@@ -45,7 +45,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Switch>
+        <Link>
           <Route path="/orders">
             <Header />
             <Orders />
@@ -67,7 +67,7 @@ function App() {
             <Header />
             <Home />
           </Route>
-        </Switch>
+        </Link>
       </div>
     </Router>
   );
