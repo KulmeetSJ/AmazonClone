@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 function DrawerComponent() {
     return (
-    <>
+        <>
             <Drawer>
                 <List>
                     <ListItem>
@@ -36,6 +36,7 @@ function DrawerComponent() {
                     </ListItem>
                 </List>
             </Drawer>
-            );
+        </>
+    );
 }
-            export default DrawerComponent;
+export default DrawerComponent;
