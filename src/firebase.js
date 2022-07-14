@@ -1,18 +1,17 @@
-import firebase from "firebase";
+
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCcPSKlYtpdzBoAC8soeSmIARMzVKzrf5I",
-    authDomain: "challenge-4b2b2.firebaseapp.com",
-    databaseURL: "https://challenge-4b2b2.firebaseio.com",
-    projectId: "challenge-4b2b2",
-    storageBucket: "challenge-4b2b2.appspot.com",
-    messagingSenderId: "962418448875",
-    appId: "1:962418448875:web:f6cce5eeaf819481f661ae",
+    apiKey: "AIzaSyDHs-R07s0HDKdQPRjUSQw58o57lbptktw",
+    authDomain: "kulmeet01.firebaseapp.com",
+    projectId: "kulmeet01",
+    storageBucket: "kulmeet01.appspot.com",
+    messagingSenderId: "306226246353",
+    appId: "1:306226246353:web:086546a1162eb16b938bf0",
+    measurementId: "G-RH7F447W4B"
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-const db = firebaseApp.firestore();
-const auth = firebase.auth();
-
-export { db, auth };
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
