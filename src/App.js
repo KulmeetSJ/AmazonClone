@@ -1,87 +1,76 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import React from "react";
+import React, { useEffect } from "react";
+import "./App.css";
+import Header from "./Header";
+import Home from "./Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Checkout from "./Checkout";
+import Login from "./Login";
+import Payment from "./Payment";
+import Orders from "./Orders";
+import { auth } from "./firebase";
+import { useStateValue } from "./StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
-import Navbar from "./Components/navbar";
-/*
-import Home from "./pages/home";
-import About from "./pages/about";
-import Contact from "./pages/contact";
-import Faq from "./pages/faq";
-
-*/
+const promise = loadStripe(
+  "pk_test_51HPvU9DFg5koCdLGJJbNo60QAU99BejacsvnKvT8xnCu1wFLCuQP3WBArscK3RvSQmSIB3N0Pbsc7TtbQiJ1vaOi00X9sIbazL"
+);
 
 function App() {
+  const [{ }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    // will only run once when the app component loads...
+
+    auth.onAuthStateChanged((authUser) => {
+      console.log("THE USER IS >>> ", authUser);
+
+      if (authUser) {
+        // the user just logged in / the user was logged in
+
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        });
+      } else {
+        // the user is logged out
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        });
+      }
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <h1>Hello ji</h1>
-      <Routes>
-        <Link>
-          <Navbar />
-          <Route path="/" element={<Home />} />
-        </Link>
-
-
-      </Routes>
-    </div>
+    <Router>
+      <div className="app">
+        <Switch>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/checkout">
+            <Header />
+            <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </Route>
+          <Route path="/">
+            <Header />
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
-function Home() {
-  return (
-
-    <div className="home">
-      <h1>Hello World Again!!</h1>
-      <nav>
-        <Link to="/App">App</Link>
-      </nav>
-    </div>
-
-  );
-}
-/*
-function App() {
-  return (
-    <div className="App">
-      <h1>Welcome to React Router!</h1>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-      </Routes>
-    </div>
-  );
-}
-
-function Home() {
-  return (
-    <>
-      <main>
-        <h2>Welcome to the homepage!</h2>
-        <p>You can do this, I believe in you.</p>
-      </main>
-      <nav>
-        <Link to="/about">About</Link>
-      </nav>
-    </>
-  );
-}
-
-function About() {
-  return (
-    <>
-      <main>
-        <h2>Who are we?</h2>
-        <p>
-          That feels like an existential question, don't you
-          think?
-        </p>
-      </main>
-      <nav>
-        <Link to="/">Home</Link>
-      </nav>
-    </>
-  );
-}
-*/
 
 export default App;
