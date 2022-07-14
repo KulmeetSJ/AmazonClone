@@ -1,7 +1,7 @@
 import React from 'react'
-import './Pages/Order.css'
+import './Order.css'
 import moment from "moment";
-import CheckoutProduct from "./Pages/CheckoutProduct";
+import CheckoutProduct from "./CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
 
 function Order({ order }) {

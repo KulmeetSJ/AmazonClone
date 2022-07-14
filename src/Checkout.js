@@ -1,5 +1,5 @@
 import React from "react";
-import "./Pages/Checkout.css";
+import "./Checkout.css";
 import Subtotal from "./Components/Subtotal";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./Pages/CheckoutProduct";
