@@ -1,6 +1,6 @@
 import firebase from "firebase/compat/app";
 import 'firebase/compat/firestore';
-require('firebase/auth');
+import "firebase/auth";
 
 
 const firebaseConfig = {
