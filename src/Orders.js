@@ -26,8 +26,7 @@ function Orders() {
         }
 
     }, [user])
-    { basket }
-    { dispatch }
+
     return (
         <div className='orders'>
             <h1>Your Orders</h1>
