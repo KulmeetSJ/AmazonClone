@@ -1,12 +1,21 @@
+
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./Home";
 import Header from "./Header";
+import Home from "./Home";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import Checkout from "./Checkout";
 import Login from "./Login";
+import Payment from "./Payment";
+import Orders from "./Orders";
 import { auth } from "./firebase";
-//import { useStateValue } from "./StateProvider";
+import { useStateValue } from "./StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+const promise = loadStripe(
+  "pk_test_51HPvU9DFg5koCdLGJJbNo60QAU99BejacsvnKvT8xnCu1wFLCuQP3WBArscK3RvSQmSIB3N0Pbsc7TtbQiJ1vaOi00X9sIbazL"
+);
 
 function App() {
   // eslint-disable-next-line
@@ -36,18 +45,27 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
-
   return (
-    <div className="app">
-      <Router>
+    <Router>
+      <div className="app">
         <Routes>
-          <Route path="/" element={<><Header /><Home /></>} />
+
+          <Route path="/orders" element={<><Header /><Orders /></>} />
           <Route path="/login" element={<><Header /><Login /></>} />
 
 
+          <Route path="/checkout" element={<><Header /><Checkout /></>} />
+
+
+          <Route path="/payment" element={<><Header /><Elements stripe={promise}><Payment /></Elements></>} />
+
+          <Route path="/" element={<><Header /><Home /></>} />
+
+
         </Routes>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
+
 export default App;

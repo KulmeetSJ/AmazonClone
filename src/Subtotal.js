@@ -6,7 +6,7 @@ import { getBasketTotal } from "./reducer";
 import { useNavigate } from "react-router-dom";
 
 function Subtotal() {
-    const history = useNavigate();
+    const navigate = useNavigate();
     // eslint-disable-next-line
     const [{ basket }, dispatch] = useStateValue();
 
@@ -16,7 +16,6 @@ function Subtotal() {
                 renderText={(value) => (
                     <>
                         <p>
-
                             Subtotal ({basket.length} items): <strong>{value}</strong>
                         </p>
                         <small className="subtotal__gift">
@@ -31,7 +30,7 @@ function Subtotal() {
                 prefix={"$"}
             />
 
-            <button onClick={e => history.push('/payment')}>Proceed to Checkout</button>
+            <button onClick={e => navigate('/payment')}>Proceed to Checkout</button>
         </div>
     );
 }
