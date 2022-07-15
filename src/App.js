@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 import Home from "./Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Checkout from "./Checkout";
 import Login from "./Login";
 import Payment from "./Payment";
@@ -17,6 +17,7 @@ const promise = loadStripe(
 );
 
 function App() {
+  // eslint-disable-next-line
   const [{ }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -40,12 +41,13 @@ function App() {
         });
       }
     });
+    // eslint-disable-next-line
   }, []);
 
   return (
     <Router>
       <div className="app">
-        <Switch>
+        <Routes>
           <Route path="/orders">
             <Header />
             <Orders />
@@ -67,7 +69,7 @@ function App() {
             <Header />
             <Home />
           </Route>
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );
