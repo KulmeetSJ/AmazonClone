@@ -19,7 +19,7 @@ function Subtotal() {
                             Subtotal ({basket.length} items): <strong>{value}</strong>
                         </p>
                         <small className="subtotal__gift">
-                            <input type="checkbox" /> This order contains a gift
+                            <input type="checkbox" class="gift" /> This order contains a gift
                         </small>
                     </>
                 )}
@@ -27,7 +27,7 @@ function Subtotal() {
                 value={getBasketTotal(basket)}
                 displayType={"text"}
                 thousandSeparator={true}
-                prefix={"$"}
+                prefix={"Rs "}
             />
 
             <button onClick={e => navigate('/payment')}>Proceed to Checkout</button>
