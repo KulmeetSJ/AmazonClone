@@ -7,6 +7,7 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 
 function Header() {
+    // eslint-disable-next-line
     const [{ basket, user }, dispatch] = useStateValue();
 
     const handleAuthenticaton = () => {
@@ -21,7 +22,7 @@ function Header() {
                 <img
                     className="header__logo"
                     src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-                />
+                    alt="" />
             </Link>
 
             <div className="header__search">
