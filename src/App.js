@@ -17,7 +17,7 @@ const promise = loadStripe(
 );
 
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ }, dispatch] = useStateValue();
 
   useEffect(() => {
     // will only run once when the app component loads...
@@ -40,10 +40,7 @@ function App() {
         });
       }
     });
-    return () => {
-      // Any clean up operation goes in here
-      unsubscribe();
-    }
+
   }, []);
 
   return (
