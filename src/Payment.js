@@ -124,13 +124,31 @@ function Payment() {
                 </div>
 
 
-                { }
+                <div className='payment__section'>
+                    <div className='payment__title'>
+                        <h3>Review items and delivery</h3>
+                    </div>
+                    <div className='payment__items'>
+                        {basket.map(item => (
+                            <CheckoutProduct
+                                id={item.id}
+                                title={item.title}
+                                image={item.image}
+                                price={item.price}
+                                rating={item.rating}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+
+                {/* Payment section - Payment method */}
                 <div className='payment__section'>
                     <div className="payment__title">
                         <h3>Payment Method</h3>
                     </div>
                     <div className="payment__details">
-                        { }
+                        {/* Stripe magic will go */}
 
                         <form onSubmit={handleSubmit}>
                             <CardElement onChange={handleChange} />
@@ -144,14 +162,14 @@ function Payment() {
                                     value={getBasketTotal(basket)}
                                     displayType={"text"}
                                     thousandSeparator={true}
-                                    prefix={"Rs"}
+                                    prefix={"$"}
                                 />
                                 <button disabled={processing || disabled || succeeded}>
                                     <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                                 </button>
                             </div>
 
-                            { }
+                            {/* Errors */}
                             {error && <div>{error}</div>}
                         </form>
                     </div>
