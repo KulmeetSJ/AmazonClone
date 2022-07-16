@@ -14,7 +14,20 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    padding: 10px;
 }
+
+.checkoutProduct__info>button:hover {
+    transition: 110ms ease-in;
+    transform: scale(1.04);
+    box-shadow: 1px 1px 6px gray;
+    cursor: pointer;
+}
+
+.checkoutProduct__info>button:active {
+    background-color: #a88734;
+}
+
 
 .checkoutProduct__image {
     object-fit: contain;

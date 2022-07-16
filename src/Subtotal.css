@@ -10,10 +10,6 @@
     border-radius: 3px;
 }
 
-.gift:hover {
-    cursor: pointer;
-}
-
 .subtotal__gift {
     display: flex;
     align-items: center;
@@ -32,4 +28,13 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    cursor: pointer;
+}
+
+.subtotal>button:hover {
+    background-color: #a88734;
+}
+
+.subtotal>button:active {
+    background-color: #9c7e31;
 }
