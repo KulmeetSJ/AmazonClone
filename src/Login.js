@@ -5,8 +5,11 @@ import { auth } from "./firebase";
 
 function Login() {
     const navigate = useNavigate();
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+
     const [password, setPassword] = useState('');
+
 
     const signIn = e => {
         e.preventDefault();
@@ -46,6 +49,9 @@ function Login() {
                 <h1>Sign-in</h1>
 
                 <form>
+                    <h5>Name</h5>
+                    <input type='text' value={name} onChange={e => setName(e.target.value)} />
+
                     <h5>E-mail</h5>
                     <input type='email' value={email} onChange={e => setEmail(e.target.value)} />
 

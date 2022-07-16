@@ -1,67 +1,82 @@
-import React from "react";
-import "./Footer.css";
+import React from 'react'
+import "./Footer.css"
 
 function Footer() {
+
+    const scroll = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
     return (
         <div className="footer">
-            <div className="footer1">
-                <h4><button >Back to top</button></h4>
+            <button onClick={scroll}>Back to top</button>
+
+
+            <div className="footer__container">
+                <div className="footer__stuff">
+
+
+                    <div className="footer__one">
+                        <div className="footer__title">
+                            <h2>Get to Know Us</h2>
+                        </div>
+                        <div className="footer__text">
+                            <h4>Careers</h4>
+                            <h4>Blog</h4>
+                            <h4>About Amazon</h4>
+                            <h4>Investor Relations</h4>
+                            <h4>Amazon Devices</h4>
+                        </div>
+                    </div>
+
+                    <div className="footer__two">
+                        <div className="footer__title">
+                            <h2>Make Money with Us</h2>
+                        </div>
+                        <div className="footer__text">
+                            <h4>Sell products on Amazon</h4>
+                            <h4>Sell on Amazon Business</h4>
+                            <h4>Sell apps on Amazon</h4>
+                            <h4>Become an Affiliate</h4>
+                            <h4>Advertise Your Products</h4>
+                            <h4>Self-Publish with Us</h4>
+                            <h4>Host an Amazon Hub</h4>
+                            <h4>› See More Make Money with Us</h4>
+                        </div>
+                    </div>
+
+                    <div className="footer__three">
+                        <div className="footer__title">
+                            <h2>Amazon Payment Products</h2>
+                        </div>
+                        <div className="footer__text">
+                            <h4>Amazon Business Card</h4>
+                            <h4>Shop with Points</h4>
+                            <h4>About Amazon</h4>
+                            <h4>Reload Your Balance</h4>
+                            <h4>Amazon Currency Converter</h4>
+                        </div>
+                    </div>
+
+                    <div className="footer__four">
+                        <div className="footer__title">
+                            <h2>Let Us Help You</h2>
+                        </div>
+                        <div className="footer__text">
+                            <h4>Amazon and COVID-19</h4>
+                            <h4>Your Account</h4>
+                            <h4>About Amazon</h4>
+                            <h4>Your Orders</h4>
+                            <h4>Shipping Rates &nbsp; Policies</h4>
+                            <h4>Returns &nbsp; Replacements</h4>
+                            <h4>Manage Your Content and Devices</h4>
+                            <h4>Amazon Assistant</h4>
+                            <h4>Help</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="footer-middle">
-                <div className="footer-row">
-                    <h3>Get to Know Us</h3>
-                    <h5>About Us</h5>
-                    <h5>Careers</h5>
-                    <h5>Press Release</h5>
-                    <h5>Amazon Cities</h5>
-                    <h5>Gift a Smile</h5>
-                </div>
-                <div className="footer-row">
-                    <h3>Connect with Us</h3>
-                    <h5>Facebook</h5>
-                    <h5>Twitter</h5>
-                    <h5>Instagram</h5>
-                </div>
-                <div className="footer-row">
-                    <h3>Make Money with Us</h3>
-                    <h5>Sell on Amazon</h5>
-                    <h5>Sell under Amazon Accelerator</h5>
-                    <h5>Become an Affiliate</h5>
-                    <h5>Advertise Your Products</h5>
-                    <h5>Amazon Pau on Merchants</h5>
-                </div>
-                <div className="footer-row">
-                    <h3>Let Us help You</h3>
-                    <h5>COVID-19 and Amazon</h5>
-                    <h5>Your Account</h5>
-                    <h5>Returns Centre</h5>
-                    <h5>100% App Download</h5>
-                    <h5>Amazon App Download</h5>
-                </div>
-            </div>
-            <div className="footer-bottom">
-                <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-                    alt="" className="footer-logo" />
-                <div className="footer-bottom-two">
-                    <h6>India</h6>
-                    <h6>Brazil</h6>
-                    <h6>Canada</h6>
-                    <h6>China</h6>
-                    <h6>France</h6>
-                    <h6>Germany</h6>
-                    <h6>Italy</h6>
-                    <h6>Japan</h6>
-                    <h6>Mexico</h6>
-                    <h6>Netherlands</h6>
-                    <h6>Singapore</h6>
-                    <h6>Spain</h6>
-                    <h6>United Arab Emirates</h6>
-                    <h6>United Kingdom</h6>
-                    <h6>United States</h6>
-                </div>
-            </div>
-        </div>
-    );
+        </div>)
 }
 
-export default Footer;
+export default Footer

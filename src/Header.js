@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
@@ -24,6 +25,21 @@ function Header() {
                     src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
                     alt="" />
             </Link>
+
+            <div className="header__delivery">
+                <div className="header__deliveryLogo">
+                    <LocationOnIcon />
+                </div>
+                <div className="header__deliveryText">
+                    <div className="header__deliveryTextName">
+                        <h6>Deliver to Uttarkhand</h6>
+                    </div>
+
+                    <div className="header__deliveryTextLocation">
+                        <h4>India</h4>
+                    </div>
+                </div>
+            </div>
 
             <div className="header__search">
                 <input className="header__searchInput" type="text" placeholder="Search for an item" />
