@@ -53,16 +53,10 @@ function App() {
 
           <Route path="/orders" element={<><Header /><Orders /><Footer /></>} />
           <Route path="/login" element={<><Header /><Login /><Footer /></>} />
-
-
           <Route path="/checkout" element={<><Header /><Checkout /><Footer /></>} />
 
-
           <Route path="/payment" element={<><Header /><Elements stripe={promise}><Payment /></Elements><Footer /></>} />
-
           <Route path="/" element={<><Header /><Home /><Footer /></>} />
-
-
         </Routes>
       </div>
     </Router>
