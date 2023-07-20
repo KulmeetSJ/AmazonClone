@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
-import './Login.css'
+import React, { useState } from "react";
+import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
 
 function Login() {
     const history = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const signIn = e => {
         e.preventDefault();
 
+        //firebase login
+
         auth
             .signInWithEmailAndPassword(email, password)
             .then(auth => {
-                history.push('/')
+                history("/");
             })
-            .catch(error => alert(error.message))
-    }
+            .catch(error => alert(error.message));
+    };
 
     const register = e => {
         e.preventDefault();
@@ -27,11 +29,11 @@ function Login() {
             .then(auth => {
                 // it successfully created a new user with email and password
                 if (auth) {
-                    history.push('/')
+                    history("/");
                 }
             })
-            .catch(error => alert(error.message))
-    }
+            .catch(error => alert(error.message));
+    };
 
     return (
         <div className='login'>
@@ -53,14 +55,14 @@ function Login() {
                     <input type='password' value={password} onChange={e => setPassword(e.target.value)} />
 
                     <button type='submit' onClick={signIn} className='login__signInButton'>Sign In</button>
-
-                    <p>
-                        By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use and Sale. Please
-                        see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
-                    </p>
-
-                    <button onClick={register} className='login__registerButton'>Create your Amazon Account</button>
                 </form>
+                <p>
+                    By signing-in you agree to the AMAZON CLONE's Conditions of Use and Sale. Please
+                    see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
+                </p>
+
+                <button onClick={register} className='login__registerButton'>Create your Amazon Account</button>
+
 
 
             </div>
@@ -68,4 +70,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Login;

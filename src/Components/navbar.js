@@ -7,7 +7,7 @@ import {
     makeStyles,
     useTheme,
     useMediaQuery
-} from "@material-ui/core";
+} from "@mui/material";
 import { Link } from "react-router-dom";
 
 import DrawerComponent from "./Drawer";

@@ -1,4 +1,8 @@
 import firebase from "firebase/compat/app";
+import 'firebase/compat/firestore';
+
+import "firebase/compat/auth";
+
 //import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
 
@@ -18,3 +22,4 @@ const db = app.firestore();
 const auth = firebase.auth();
 
 export { db, auth };
+

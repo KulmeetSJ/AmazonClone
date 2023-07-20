@@ -16,10 +16,13 @@ function Payment() {
     const stripe = useStripe();
     const elements = useElements();
 
-    const [succeeded, setSucceeded] = useState(false);
-    const [processing, setProcessing] = useState("");
+    //const [succeeded, setSucceeded] = useState(false);
+    const [setSucceeded] = useState(false);
+    //const [processing, setProcessing] = useState("");
+    const [setProcessing] = useState("");
     const [error, setError] = useState(null);
-    const [disabled, setDisabled] = useState(true);
+    //const [disabled, setDisabled] = useState(true);
+    const [setDisabled] = useState(true);
     const [clientSecret, setClientSecret] = useState(true);
 
     useEffect(() => {
@@ -44,7 +47,7 @@ function Payment() {
         event.preventDefault();
         setProcessing(true);
 
-        const payload = await stripe.confirmCardPayment(clientSecret, {
+        await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
@@ -63,12 +66,12 @@ function Payment() {
                 })
 
             setSucceeded(true);
-            setError(null)
-            setProcessing(false)
+            setError(null);
+            setProcessing(false);
 
             dispatch({
                 type: 'EMPTY_BASKET'
-            })
+            });
 
             history.replace('/orders')
         })
@@ -99,8 +102,8 @@ function Payment() {
                     </div>
                     <div className='payment__address'>
                         <p>{user?.email}</p>
-                        <p>123 React Lane</p>
-                        <p>Los Angeles, CA</p>
+                        <p>123,Rajpur</p>
+                        <p>Dehradun</p>
                     </div>
                 </div>
 
@@ -143,11 +146,16 @@ function Payment() {
                                     value={getBasketTotal(basket)}
                                     displayType={"text"}
                                     thousandSeparator={true}
-                                    prefix={"$"}
+                                    prefix={"Rs "}
                                 />
-                                <button disabled={processing || disabled || succeeded}>
-                                    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                                <button>
+                                    <a href="https://buy.stripe.com/test_00g17d4pGdat1iMfYZ">
+                                        Pay Now
+                                    </a>
                                 </button>
+                                {/* <button disabled={processing || disabled || succeeded}>
+                                    <span>{processing ? <p>Processing</p> : "Pay Now"}</span>
+                                </button> */}
                             </div>
 
                             {/* Errors */}
@@ -160,4 +168,4 @@ function Payment() {
     )
 }
 
-export default Payment
+export default Payment;

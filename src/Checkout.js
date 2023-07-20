@@ -3,9 +3,11 @@ import "./Checkout.css";
 import Subtotal from "./Subtotal";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
+import { useNavigate } from "react-router-dom";
 
 function Checkout() {
     const [{ basket, user }] = useStateValue();
+    const navigate = useNavigate();
 
     return (
         <div className="checkout">
@@ -41,7 +43,7 @@ function Checkout() {
                 )}
             </div>
             {basket?.length > 0 &&
-                <div className="checkout__right">
+                <div onClick={e => navigate("/payment")} className="checkout__right">
                     <Subtotal />
                 </div>
             }
